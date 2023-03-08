@@ -13,6 +13,7 @@ function getComputerChoice() {
     }
 }
 
+
 // a function that plays a single round and returns who won the round
 
 
@@ -29,6 +30,7 @@ if ((playerSelection == computerSelection)) {
 }
 }
 
+
 // a function that asks the player to make their choice
 // input must be case insensitive and lower case for comparison
 
@@ -39,11 +41,8 @@ function getPlayerChoice() {
 }
 
 
-//console.log(computerSelection);
-
-//console.log(playRound(playerSelection, computerSelection));
-
 // a function that plays a round of 5 games using a loop
+// function should keep score and report winner at the end
     
 
 function game (){
@@ -63,14 +62,16 @@ function game (){
             computerScore ++;
         }
     }
-    console.log(playerScore, computerScore);
+    if (playerScore > computerScore) {
+        console.log(`You won the game ${playerScore} to ${computerScore}`)
+    } else if (computerScore > playerScore) {
+        console.log(`You lost the game ${computerScore} to ${playerScore}`)
+    } else {
+        "It's a draw"
+    }
 }
 
 game();
-
-// function should keep score and report winner at the end
-
-//
 
 
 
