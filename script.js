@@ -54,8 +54,16 @@ function game (){
         const computerSelection = getComputerChoice();
         console.log(computerSelection);
         console.log(playRound(playerSelection, computerSelection));
-        
+        if (playRound(playerSelection, computerSelection) == "you won") {
+            playerScore ++;
+        } else if (playRound(playerSelection, computerSelection) == "you lost") { 
+            computerScore ++;
+        } else {
+            playerScore ++;
+            computerScore ++;
+        }
     }
+    console.log(playerScore, computerScore);
 }
 
 game();
