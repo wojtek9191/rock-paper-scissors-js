@@ -13,24 +13,56 @@ function getComputerChoice() {
     }
 }
 
-//console.log(getComputerChoice());
-
 // a function that plays a single round and returns who won the round
+
 
 function playRound(playerSelection, computerSelection) {
 if ((playerSelection == computerSelection)) {
-    console.log("tie");
+    return "tie"
 } else if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissors" && computerSelection == "paper")) {
-    console.log("you won")
+    return "you won"
 } else {
-    console.log("you lost")
+    return "you lost"
 }
 }
 
-const playerSelection = "rock"
-const computerSelection = getComputerChoice();
+// a function that asks the player to make their choice
+// input must be case insensitive and lower case for comparison
 
-playRound(playerSelection, computerSelection);
+
+function getPlayerChoice() {
+    let answer = prompt("Select rock, paper or scissors")
+    return answer.toLowerCase();
+}
+
+
+//console.log(computerSelection);
+
+//console.log(playRound(playerSelection, computerSelection));
+
+// a function that plays a round of 5 games using a loop
+    
+
+function game (){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+        
+    }
+}
+
+game();
+
+// function should keep score and report winner at the end
+
+//
+
+
+
