@@ -1,6 +1,9 @@
+const selectedRock = document.getElementById("rock");
+const selectedPaper = document.getElementById("paper");
+const selectedScissors = document.getElementById("scissors");
+
 // get a random choice from the computer
 // 0-rock, 1-paper, 2-scissors
-
 
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * 3);
@@ -11,41 +14,64 @@ function getComputerChoice() {
     } else {
     return "scissors"
     }
-}
+};
 
 
 // a function that plays a single round and returns who won the round
 
-
 function playRound(playerSelection, computerSelection) {
-if ((playerSelection == computerSelection)) {
-    return "tie"
+
+    if (playerSelection == computerSelection) {
+        document.getElementById("results").innerText += "tie ";
 } else if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissors" && computerSelection == "paper")) {
-    return "you won"
+        document.getElementById("results").innerText += `you won, you picked ${playerSelection} and computer picked ${computerSelection}`;
 } else {
-    return "you lost"
-}
-}
+        document.getElementById("results").innerText +=`you lost, you picked ${playerSelection} and computer picked ${computerSelection}`;
+    
+}};
 
 
 // a function that asks the player to make their choice
 // input must be case insensitive and lower case for comparison
 
-
-function getPlayerChoice() {
+/* function getPlayerChoice() {
     let answer = prompt("Select rock, paper or scissors")
     return answer.toLowerCase();
-}
+} */
+
+
+selectedRock.addEventListener("click", () => {
+    const playerSelection = selectedRock.id;
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+});
+
+selectedPaper.addEventListener("click", () => {
+    const playerSelection = selectedPaper.id;
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+});
+
+selectedScissors.addEventListener("click", () => {
+    const playerSelection = selectedScissors.id;
+    const computerSselection = getComputerChoice();
+    playRound(playerSelection, computerSselection);
+});
+
+
+
+
+
 
 
 // a function that plays a round of 5 games using a loop
 // function should keep score and report winner at the end
     
 
-function game (){
+/* function game (){
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
@@ -71,7 +97,7 @@ function game (){
     }
 }
 
-game();
+game(); */
 
 
 
